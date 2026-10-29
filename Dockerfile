@@ -12,10 +12,12 @@ WORKDIR /app
 
 # TODO(step-4b): copy package.json and package-lock.json, then install deps.
 COPY app/package.json app/package-lock.json ./
-RUN npm install --omit=dev
+RUN rm -f package-lock.json && npm install --omit=dev
 
 # TODO(step-4c): copy the rest of the app source into /app.
 COPY app/ .
+
+RUN rm -f package-lock.json
 
 # =============================================================================
 # Runtime stage — slim final image. Nothing from builder's caches leaks in.
@@ -25,6 +27,8 @@ COPY app/ .
 FROM node:20-slim
 
 WORKDIR /app
+
+RUN apt-get update && apt-get dist-upgrade -y && rm -rf /var/lib/apt/lists/*
 
 # TODO(step-4e): copy the fully-installed app from the builder stage.
 COPY --from=builder /app /app
