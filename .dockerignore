@@ -6,3 +6,15 @@
 # here, or the image will build without seed data paths being reachable.
 #
 # (Fill in the list below.)
+.dockerignore
+.env
+.env.example
+.git
+.gitattributes
+.gitignore
+.github
+Dockerfile
+docker-compose.yml
+README.md
+node_modules
+npm-debug.log
