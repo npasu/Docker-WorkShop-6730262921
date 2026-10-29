@@ -12,7 +12,7 @@ WORKDIR /app
 
 # TODO(step-4b): copy package.json and package-lock.json, then install deps.
 COPY app/package.json app/package-lock.json ./
-RUN rm -f package-lock.json && npm install --omit=dev
+RUN npm install --omit=dev
 
 # TODO(step-4c): copy the rest of the app source into /app.
 COPY app/ .
