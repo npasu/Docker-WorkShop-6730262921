@@ -10,8 +10,6 @@ FROM node:20.11-slim AS builder
 
 WORKDIR /app
 
-RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
-
 # TODO(step-4b): copy package.json and package-lock.json, then install deps.
 COPY app/package.json app/package-lock.json ./
 RUN npm install --omit=dev

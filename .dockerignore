@@ -8,13 +8,8 @@
 # (Fill in the list below.)
 .dockerignore
 .env
-.env.example
 .git
-.gitattributes
-.gitignore
 .github
 Dockerfile
-docker-compose.yml
-README.md
 node_modules
 npm-debug.log
